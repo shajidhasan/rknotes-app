@@ -63,7 +63,12 @@
                 </p>
             {/if}
 
-            <input type="submit" class="float-right btn" value="Login" />
+            <input
+                type="submit"
+                class="float-right btn"
+                value="Login"
+                disabled={loading}
+            />
         </form>
     </div>
     <p>

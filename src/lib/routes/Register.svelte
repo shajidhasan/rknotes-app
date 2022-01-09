@@ -82,7 +82,12 @@
                 <p transition:slide class="line-clamp-1">{errorMessage}</p>
             {/if}
 
-            <input type="submit" class="float-right btn" value="Register" />
+            <input
+                type="submit"
+                class="float-right btn"
+                value="Register"
+                disabled={loading}
+            />
         </form>
     </div>
     <p>
