@@ -16,11 +16,17 @@ export const authStore = writable<{
 
 authStore.subscribe((data) => {
     if (data.updated && !data.isLoggedIn) {
-        location.subscribe((loc) => {
-            if (loc !== "/login" && loc !== "/register")
-                replace("/login");
-        })
-    } else if (data.updated && data.isLoggedIn) {
+        let currentLocation: string;
+        const unsub = location.subscribe((loc) => {
+            currentLocation = loc;
+        });
+        unsub();
+        console.log("hehehee");
+        console.log(currentLocation);
+        if (currentLocation !== "/login" && currentLocation !== "/register")
+            replace("/login");
+    }
+    else if (data.updated && data.isLoggedIn) {
         loadCurrentUserNotes()
     }
 });
