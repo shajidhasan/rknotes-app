@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
 import type { User } from "firebase/auth";
-import { replace } from "svelte-spa-router";
+import { location, replace } from "svelte-spa-router";
 import { loadCurrentUserNotes } from "$firebase";
 
 export const userNameStore = writable<string>();
@@ -16,7 +16,10 @@ export const authStore = writable<{
 
 authStore.subscribe((data) => {
     if (data.updated && !data.isLoggedIn) {
-        replace("/login");
+        location.subscribe((loc) => {
+            if (loc !== "/login" && loc !== "/register")
+                replace("/login");
+        })
     } else if (data.updated && data.isLoggedIn) {
         loadCurrentUserNotes()
     }
