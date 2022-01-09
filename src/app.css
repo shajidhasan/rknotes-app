@@ -1,0 +1,52 @@
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .btn {
+        @apply py-2 px-4 bg-primary-600 text-white font-medium rounded hover:bg-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-opacity-75 cursor-pointer;
+    }
+    .btn-nofill {
+        @apply py-2 px-4 bg-slate-100 text-primary-600 font-medium rounded hover:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-opacity-75 cursor-pointer;
+    }
+    .btn-mute {
+        @apply py-2 px-4 text-slate-700 font-medium rounded border-2 border-slate-200 hover:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-opacity-75 cursor-pointer;
+    }
+    .icon-btn {
+        @apply p-2 text-primary-600 rounded bg-slate-100 hover:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-opacity-75;
+    }
+    .icon-btn-fill {
+        @apply p-2 text-white rounded bg-primary-600 hover:bg-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-opacity-75;
+    }
+    .icon-btn-mute {
+        @apply p-2 text-slate-700 font-medium rounded border-2 border-slate-200 hover:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-opacity-75 cursor-pointer;
+    }
+    a {
+        @apply text-primary-600 underline focus:ring-2 focus:outline-none focus:ring-primary-400 focus:ring-opacity-75;
+    }
+    label, p {
+        @apply text-slate-700;
+    }
+    .form-input {
+        @apply block w-full rounded border-slate-300 focus:border-primary-600 focus:ring-primary-600 text-slate-700;
+    }
+    .tree-folder {
+        @apply text-sm px-3 py-2 rounded text-slate-600 flex-1 text-left bg-slate-100 flex flex-row items-center;
+    }
+    .tree-folder.selected {
+        @apply bg-slate-600 text-white font-semibold;
+    }
+    .tree-note {
+        @apply text-sm px-2 py-1 flex-1 rounded hover:bg-slate-100 text-slate-700 flex flex-row items-center justify-start;
+    }
+    .tree-note.selected {
+        @apply text-white bg-primary-600 font-medium;
+    }
+    .tree-note.unsaved {
+        @apply border-l-4 border-yellow-500;
+    }
+    .tree-note.selected.unsaved {
+        @apply border-none text-white bg-yellow-600;
+    }
+}
