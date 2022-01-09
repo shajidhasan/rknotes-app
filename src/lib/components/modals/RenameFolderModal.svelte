@@ -35,7 +35,6 @@
     };
 </script>
 
-
 <ModalBase on:close={closeModal} title="Rename Folder">
     <ModalBody>
         <div class="flex flex-row items-center">
@@ -55,6 +54,6 @@
     </ModalBody>
     <ModalFooter>
         <button class="btn-mute" on:click={closeModal}>Cancel</button>
-        <button class="btn" on:click={renameFolderConfirm}> Create </button>
+        <button class="btn" on:click={renameFolderConfirm}>Rename</button>
     </ModalFooter>
 </ModalBase>
