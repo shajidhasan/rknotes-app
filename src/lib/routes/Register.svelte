@@ -66,6 +66,7 @@
                     class="form-input mt-2"
                     bind:value={email}
                 />
+                <p class="text-sm mt-2">We shall need this email if you ever forget your password.</p>
             </div>
             <div>
                 <label for="password">Password: </label>
@@ -79,7 +80,7 @@
             {#if loading}
                 <p transition:slide class="line-clamp-1">Please wait...</p>
             {:else if error}
-                <p transition:slide class="line-clamp-1">{errorMessage}</p>
+                <p transition:slide class="line-clamp-1 text-red-600">{errorMessage}</p>
             {/if}
 
             <input

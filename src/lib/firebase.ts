@@ -128,11 +128,12 @@ export const deleteNote = async (id: string) => {
 
 export const shareNote = async (id: string, share: boolean, shareId: string) => {
     const uid = auth.currentUser.uid;
-    const querySnapshot = await getDocs(query(collection(firestore, 'users', uid, 'notes'), where('publicId', '==', shareId)));
-    if (querySnapshot.empty) {
+    if (!share) {
         await updateDoc(doc(firestore, 'users', uid, 'notes', id), { public: share, publicId: shareId });
+        return;
     } else {
-        if (querySnapshot.docs[0].data()["id"] === id) {
+        const querySnapshot = await getDocs(query(collection(firestore, 'users', uid, 'notes'), where('publicId', '==', shareId)));
+        if (querySnapshot.empty) {
             await updateDoc(doc(firestore, 'users', uid, 'notes', id), { public: share, publicId: shareId });
         } else {
             throw new Error("This link already exists");

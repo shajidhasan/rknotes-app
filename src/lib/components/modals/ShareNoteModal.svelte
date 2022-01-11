@@ -25,6 +25,15 @@
             message = "Link must be at least 3 characters long!";
             return;
         }
+
+        if (
+            $selectionStore.currentlySelectedNote.public === share &&
+            $selectionStore.currentlySelectedNote.publicId === publicId
+        ) {
+            closeModal();
+            return;
+        }
+
         try {
             message = "Please wait...";
             await shareNote(id, share, publicId);
@@ -51,7 +60,7 @@
                 bind:checked={share}
                 id="share"
             />
-            <label for="share" class="text-lg">Public sharing</label>
+            <label for="share" class="text-lg">Sharing enabled</label>
         </div>
         <div class="flex flex-row items-center space-x-2">
             <label for="share-id">Link: </label>

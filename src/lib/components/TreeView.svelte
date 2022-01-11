@@ -5,6 +5,7 @@
         modalStore,
         noteStore,
         selectionStore,
+        sideBarShowStore,
         unsavedStore,
     } from "$stores";
 
@@ -103,6 +104,7 @@
                         <button
                             on:click={() => {
                                 $selectionStore.currentlySelectedNote = note;
+                                $sideBarShowStore = false;
                             }}
                             class="tree-note"
                             class:selected={$selectionStore.currentlySelectedNote ===

@@ -36,7 +36,7 @@
                 RKNotes
             </h1>
         </div>
-        <div class="flex items-center">
+        <div class="flex items-center space-x-2">
             <button
                 on:click={async () => {
                     showNotification("Saving...", "info");
